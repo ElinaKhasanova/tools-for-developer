@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.kpfu.elina.controllers.MqController">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <top>
+        <Label styleClass="uc" text="Sending messages to IBM MQ"/>
+    </top>
+
+    <center>
+        <VBox>
+<!--            <HBox>-->
+<!--                <Label fx:id="delayUpperLabel" text="Delay:"/>-->
+<!--                <TextField maxWidth="80" fx:id="delayUpperField" text="1000"/>-->
+<!--                <Label fx:id="logMessage"/>-->
+<!--            </HBox>-->
+            <HBox>
+                <Label fx:id="textFormat" text="Select formats for processing:"/>
+                <CheckBox fx:id="txtCheckBox" selected="true" text=".txt"/>
+                <CheckBox fx:id="datCheckBox" selected="false" text=".dat"/>
+                <CheckBox fx:id="objCheckBox" selected="false" text=".obj"/>
+            </HBox>
+            <HBox>
+                <Label fx:id="inputDir" text="Select directory:"/>
+                <Button fx:id="browseButtonMq" onAction="#handleBrowseMq">Browse</Button>
+                <TextField prefWidth="400" fx:id="outputFileFieldMq"/>
+            </HBox>
+            <HBox>
+                <Label fx:id="textMq" text="For sending messages to IBM MQ:"/>
+                <Button fx:id="sendButton" onAction="#handleSend">Send</Button>
+            </HBox>
+
+            <Separator/>
+<!--            <VBox>-->
+<!--                <Label styleClass="info" text="Log Output"/>-->
+<!--                <TextArea fx:id="logsResult">-->
+<!--                </TextArea>-->
+<!--            </VBox>-->
+        </VBox>
+    </center>
+
+</BorderPane>

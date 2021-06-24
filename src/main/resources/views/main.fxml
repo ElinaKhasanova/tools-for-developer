@@ -1,0 +1,73 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="ru.kpfu.elina.controllers.MainController"
+      xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER">
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="Open" disable="true"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExitAction" accelerator="Ctrl+Shift+E"/>
+                </items>
+            </Menu>
+            <Menu text="View">
+                <items>
+                    <fx:define>
+                        <ToggleGroup fx:id="themeToggleGroup"/>
+                    </fx:define>
+                    <Menu text="Theme">
+                        <items>
+                            <RadioMenuItem text="Dark" selected="true" toggleGroup="$themeToggleGroup"
+                                           onAction="#handleDarkThemeAction" accelerator="Ctrl+Shift+D"/>
+                            <RadioMenuItem text="Light" toggleGroup="$themeToggleGroup"
+                                           onAction="#handleLightThemeAction" accelerator="Ctrl+Shift+L"/>
+                        </items>
+                    </Menu>
+                </items>
+            </Menu>
+            <Menu text="Help">
+                <items>
+                    <MenuItem text="Search" disable="true"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="About" onAction="#handleAboutAction" accelerator="Ctrl+A"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <TabPane fx:id="tabPane" xmlns="http://javafx.com/javafx/8.0.40"
+             xmlns:fx="http://www.w3.org/2001/XInclude">
+        <tabs>
+            <Tab fx:id="logTab" text="XML Generator" closable="false">
+                <fx:include source="logs.fxml"/>
+            </Tab>
+            <Tab fx:id="mqTab" text="Send to IBM MQ" closable="false">
+                <fx:include source="mq.fxml"/>
+            </Tab>
+            <Tab fx:id="jsonTab" text="Json Editor" closable="false">
+                <fx:include source="json.fxml"/>
+            </Tab>
+<!--            <Tab fx:id="generatorTab" text="Generator keys" closable="false">-->
+<!--                <fx:include source="generator.fxml"/>-->
+<!--            </Tab>-->
+            <Tab fx:id="hashTab" text="Hash Calculator" closable="false">
+                <fx:include source="hash.fxml"/>
+            </Tab>
+            <Tab fx:id="urlTab" text="Epoch Converter" closable="false">
+                <fx:include source="epoch.fxml"/>
+            </Tab>
+<!--            <Tab fx:id="regexTab" text="Regex" closable="false">-->
+<!--                <fx:include source="regex.fxml"/>-->
+<!--            </Tab>-->
+            <Tab fx:id="restApiTab" text="Rest API" closable="false">
+                <fx:include source="rest_api.fxml"/>
+            </Tab>
+<!--            <Tab fx:id="asciiArtTab" text="ASCII Art" closable="false">-->
+<!--                <fx:include source="ascii.fxml"/>-->
+<!--            </Tab>-->
+
+        </tabs>
+    </TabPane>
+</VBox>
